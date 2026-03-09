@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏥 ナースStudy
 
-## Getting Started
+看護学生・看護師向け学習Webアプリ
 
-First, run the development server:
+**🌐 公開URL:** https://willowy-licorice-3f1ba4.netlify.app/
+**📦 GitHub:** https://github.com/kazunurse/nurse-study-app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## できること
+
+| 機能 | 内容 |
+|------|------|
+| 📖 学習記事 | nurse-kazu.comの記事をカテゴリ別に表示 |
+| 🃏 フラッシュカード | 重要用語をタップでめくって暗記 |
+| ✅ クイズ | 4択問題で理解度チェック |
+| 📝 ユーザー登録 | 進捗データを保存できる |
+| 🗂 アウトライン | 記事の目次でサクッとナビゲーション |
+
+---
+
+## 技術スタック
+
+- **フロントエンド**: Next.js 15 (App Router) + Tailwind CSS
+- **DB・認証**: Supabase
+- **コンテンツ**: WordPress REST API（nurse-kazu.com）
+- **デプロイ**: Netlify + GitHub
+
+---
+
+## 環境変数（.env.local）
+
+```
+NEXT_PUBLIC_SUPABASE_URL=https://fcamburkvksousebrguu.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_...
+NEXT_PUBLIC_WP_API_URL=https://nurse-kazu.com/wp-json/wp/v2
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ローカルで動かす
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+# → http://localhost:3000
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 改良したときのデプロイ方法
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git add .
+git commit -m "変更内容"
+git push
+# → Netlifyが自動でデプロイされる！
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## WordPressカテゴリID
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| ID | カテゴリ | 記事数 |
+|----|---------|--------|
+| 14 | 解剖学 | 19 |
+| 12 | 実習系 | 26 |
+| 13 | 看護学生 | 35 |
+| 15 | 看護師系 | 5 |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 今後やりたいこと
+
+- [ ] 進捗ダッシュボード
+- [ ] WordPressと自動同期（Webhook）
+- [ ] インタラクティブ解剖図
+- [ ] Claude API連携（高精度問題生成）
+- [ ] カスタムドメイン
